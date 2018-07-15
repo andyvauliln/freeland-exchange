@@ -22,7 +22,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/index.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,10 +32,18 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.css', '.scss', '.svg'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'mixins': `@/sass/mixins.scss`,
+      'components': `@/components`,
+      'layouts': `@/layouts`,
+      'pages': `@/pages`,
+      'services': `@/services`,
+      'variables': `@/sass/variables.scss`,
+      'styles': `@/sass/`,
+      'assets': `@/assets/`,
     }
   },
   module: {
@@ -52,7 +60,21 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.pug$/,
+        use: 'pug-loader',
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader"
+        }]
+      },
+      {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -74,7 +96,40 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      {
+        test: /\.svg$/,
+        include: [
+          resolve('./src/assets/icons/'),
+        ],
+        exclude: [
+          resolve('./src/assets/icons/colored/'),
+        ],
+        use: [
+          'svg-sprite-loader',
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { cleanupEnableBackground: true },
+                { cleanupAttrs: true },
+                { removeEmptyAttrs: true },
+                { removeDimensions: true },
+                { removeStyleElement: true },
+                { removeAttrs: { attrs: ['fill', 'stroke'] } },
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        include: [
+          resolve('./src/assets/icons/colored/'),
+        ],
+        use: 'svg-sprite-loader',
+      },
     ]
   },
   node: {

@@ -1,0 +1,170 @@
+@import 'variables';
+
+#app {
+  height: 100%;
+}
+
+.index {
+  height: 100%;
+}
+
+.invalid {
+  color: #ff0000;
+}
+
+.valid {
+  border-color: #00dc7c;
+}
+
+.link {
+  display: inline-block;
+  cursor: pointer;
+  color: $color_yellow;
+  text-decoration: none;
+  padding: 3px 0 2px;
+  border-bottom: 1px solid transparent;
+  transition: border .5s;
+  &:hover {
+    transition: border.5s;
+    border-color: $color_yellow;
+  }
+  &--green {
+    color: $color_green;
+    &:hover {
+      transition: border.5s;
+      border-color: $color_green;
+    }
+  }
+  &--red {
+    color: $color_red;
+    &:hover {
+      transition: border.5s;
+      border-color: $color_red;
+    }
+  }
+}
+
+.input {
+  padding: 7px;
+  border-color: #044568;
+  background-color: transparent;
+  color: $color_summersky;
+  &::placeholder{
+    color: #044568;
+  }
+  &:hover, &:focus{
+    border-color: $color_summersky;
+    color: $color_summersky;
+  }
+  &[type="password"]{
+    letter-spacing: 4px;
+  }
+}
+
+.checkboxTable{
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e9bd24;
+    border-radius: 50%;
+    transition: background .5s;
+  }
+
+  &:checked + label:before {
+    background: #e9bd24;
+  }
+}
+
+.table {
+  $tableHeight: 62px;
+  overflow: auto;
+
+  &__body {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__sortable {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+    &--active {
+      font-style: italic;
+    }
+  }
+
+  thead {
+    border-color: #032537;
+    color: #a1a1a1;
+  }
+  tbody{
+    tr {
+      position: relative;
+    }
+  }
+
+  tr {
+    height: $tableHeight;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 1px solid #023b59;
+  }
+
+  td {
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 41px;
+}
+
+.actions {
+  &__orders {
+    &--buy {
+      animation: animBuy 0.7s ease-out 0s;
+    }
+    &--sell {
+      animation: animSell 0.7s ease-out 0s;
+    }
+  }
+}
+
+// animations
+@keyframes animBuy {
+  10% {
+    background: #00CE7D;
+  }
+  100% {
+    background: inherit;
+  }
+}
+
+@keyframes animSell {
+  10% {
+    background: #E55541;
+  }
+  100% {
+    background: inherit;
+  }
+}

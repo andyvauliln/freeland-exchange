@@ -1,0 +1,70 @@
+@import 'variables';
+html {
+  height: 100%;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  line-height: 1.2;
+  font-family: "Roboto";
+  background-color: $color_blue;
+}
+
+
+h1, h2, h3, h4, h5, h6, ul, ol, li, a, p {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+select {
+  padding: 0;
+  outline: 0;
+  border-width: 0;
+  font-family: inherit;
+}
+
+input {
+  padding: 8px;
+  outline: 0;
+  border-radius: 2px;
+  border: 1px solid #7ed321;
+  background-color: rgba(184, 233, 134, 0.1);
+  font-family: inherit;
+  color: #fff;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+img, svg {
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+  max-width: 100%;
+  fill: inherit;
+}
+
+td {
+  padding: 0;
+  padding-bottom: 4px;
+}

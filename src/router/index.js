@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import routes from './routes';
 
-Vue.use(Router)
+Vue.use(VueRouter);
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
-})
+const router = new VueRouter({
+  mode: (process.env.NODE_ENV === 'production') ? 'history' : 'hash',
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return {x: 0, y: 0};
+  },
+});
+
+export default router;

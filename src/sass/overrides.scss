@@ -1,0 +1,131 @@
+.noty{
+  &_close_button {
+    color: #ffc600;
+    top: 7px;
+    right: 25px;
+    width: 0;
+    height: 0;
+    font-size: 18px !important;
+    font-weight: 300;
+  }
+  &_type {
+    &__info, &__error, &__success {
+      min-width: 201px !important;
+      box-shadow: 0 7px 10px rgba(0, 0, 0, 0.24) !important;
+      border-radius: 3px !important;
+      padding: 11px 33px 9px 21px !important;
+      margin: 10px !important;
+      color: #ffffff !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+    }
+    &__info {
+      background-color: #02334d !important;
+    }
+    &__error {
+      background-color: #d6331e !important;
+    }
+    &__success {
+      background-color: #00a86b !important;
+    }
+  }
+}
+
+@keyframes noty_mobile_anim_in {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes noty_mobile_anim_out {
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+.gm-style-cc {
+  display: none;
+}
+
+.uppy-DashboardTabs, .uppy-Dashboard-browse, .uppy-DashboardItem-edit, .uppy-DashboardItem-status, .uppy-StatusBar-actionBtn, .uppy-DashboardItem-progress {
+  display: none;
+}
+
+.uppy-Dashboard-files, .uppy-Dashboard-filesContainer, .uppy-Dashboard-innerWrap, .uppy-Dashboard-inner, .uppy-Dashboard {
+  height: 140px;
+}
+
+.uppy-DashboardItem {
+  width: 80px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.uppy-Dashboard-inner > .uppy-Dashboard-close {
+  display: none;
+}
+
+.uppy-Dashboard-bgIcon {
+  display: flex;
+  height: 100%;
+  & > .UppyIcon {
+    display: none;
+  }
+}
+
+.uppy-Dashboard-dropFilesTitle {
+  opacity: 0.5;
+  font-size: 20px;
+  font-weight: 300;
+  margin: auto;
+}
+
+.uppy-Dashboard-files {
+  display: flex;
+  &--noFiles {
+    display: block;
+  }
+}
+
+.uppy-DashboardItem-action {
+  position: relative;
+}
+
+.uppy-DashboardItem-remove {
+  position: absolute;
+  z-index: 10;
+  top: -80px;
+  left: 55px;
+  $size: 25px;
+  width: $size;
+  height: $size;
+  padding: 0;
+  background-color: transparent;
+  & path {
+    &:nth-of-type(1) {
+      display: none;
+    }
+    &:nth-of-type(2) {
+      fill: #f33a3a;
+    }
+  }
+}
+
+.uppy-DashboardItem-previewInnerWrap {
+  height: 50px;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background: url('~@/assets/images/file.png') no-repeat;
+  background-color: transparent !important;
+  & img {
+    display: none;
+  }
+}
