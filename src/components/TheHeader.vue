@@ -1,12 +1,14 @@
 <template lang="pug">
 header.header
   .header__main
-    .header__stats
+    TheHeaderPair
     .header__userbar
       TheHeaderLogout
 </template>
 
 <script>
+import BButton from './BButton';
+import TheHeaderPair from './TheHeaderPair';
 import TheHeaderLogout from './TheHeaderLogout';
 
 export default {
@@ -16,9 +18,9 @@ export default {
   },
   computed: {
   },
-  methods: {
-  },
   components: {
+    BButton,
+    TheHeaderPair,
     TheHeaderLogout,
   },
 };

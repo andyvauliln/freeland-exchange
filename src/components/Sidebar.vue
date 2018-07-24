@@ -152,6 +152,7 @@ export default {
     height: 30px;
     width: 80px;
     fill: #fff;
+    filter: invert(100%);
   }
   &__title {
     color: #ffffff;
