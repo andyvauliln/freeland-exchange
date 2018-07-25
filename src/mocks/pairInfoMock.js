@@ -6,7 +6,7 @@ export default {
   'low': 6377.3,
   'high': 6382.1,
   'last': 6382.1,
-  'volume': 0,
+  'volume': 1231313114,
   'change': 0.07526696250764430087968262,
   'lowChange': 100,
   'highChange': 100,

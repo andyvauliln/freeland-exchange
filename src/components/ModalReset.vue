@@ -1,18 +1,15 @@
 <template lang="pug">
 ModalLayout
   .reset
-    Icon.reset__icon(id="pass")
     .reset__content(v-if="step == 0")
       .reset__headerContent
         .reset__title Reset password
         .reset__other(href="#" @click="openModal({name: 'signIn'})") Sign in
       .reset__inputs
         IInput.reset__input(label="Email address", v-model="email")
-        Checkbox.reset__checkbox(name="acknowledged", :value="true", v-model="acknowledged")
+        Checkbox.reset__checkbox(name="acknowledged", color="yellow", :value="true", v-model="acknowledged")
           .reset__checkboxText I acknowledge that my account will be locked for a minimum of 24 hours.
-      BButton.reset__button(color="malachite" rounded @click.native="reset()") Reset now
-    .reset__other(href="#" @click="openModal({name: 'signIn'})") Sign in
-      .reset__statusMsg Completed
+      BButton.reset__button(color="yellow" rounded @click.native="reset()") Reset now
 </template>
 
 <script>
@@ -65,7 +62,9 @@ export default {
 
 <style lang="scss">
 @import 'variables';
-
+.modal__content{
+  height: 387px;
+}
 .reset {
   display: flex;
   flex-direction: column;

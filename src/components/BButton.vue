@@ -75,9 +75,9 @@ $ROOT: "button";
     }
   }
   &--yellow {
-    $color1: $color_energy;
+    $color1: #fff;
     $color2: darken(desaturate(adjust-hue($color1, -13), 11.89), 8.04);
-    $colorHover1: $color_malachite;
+    $colorHover1: $color_yellow;
     $colorHover2: darken(saturate(adjust-hue($colorHover1, 41), 22.45), 30.78);
     $darken_hover: 5%;
     $darken_active: 10%;
@@ -86,13 +86,13 @@ $ROOT: "button";
     &:hover {
       color: #fff;
       border-color: $colorHover1;
-      background-image: linear-gradient(180deg, $colorHover1 0, $colorHover2 100%);
+      background-image: linear-gradient(0, $color_yellow 0, $color_yellow 100%);;
     }
     &.#{$ROOT}--outline {
       color: #fff;
       &:hover {
-        background-image: none;
-        color: $color_malachite;
+        background-image: $color_yellow;
+        color: $color_energy;
       }
     }
   }

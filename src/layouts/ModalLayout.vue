@@ -78,13 +78,8 @@ $padding: 40px;
     border-radius: 12px;
     z-index: 801;
     box-shadow: 0 25px 20px rgba(0, 0, 0, 0.24);
-    background-image: repeating-linear-gradient(
-      135deg,
-      #002338,
-      #002338 45px,
-      #0d2e41 0,
-      #0d2e41 80px
-    )
+    background: url('~@/assets/images/freeman_4.jpg') fixed no-repeat;
+    background-size: cover;
   }
   &__closeIcon {
     z-index: 801;

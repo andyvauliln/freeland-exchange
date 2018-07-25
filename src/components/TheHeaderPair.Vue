@@ -116,7 +116,7 @@
     &__divider{
       font-size: x-large;
       font-weight: bold;
-      padding: 0 20px;
+      padding: 0 5px;
     }
     &__select {
       max-width: 90px;

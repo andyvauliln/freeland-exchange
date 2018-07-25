@@ -1,4 +1,4 @@
 export default {
-  'BTC': ['USD', 'MFCoin'],
-  'MFCoin': ['USD', 'BTC'],
+  'BTC': ['USD', 'MFC'],
+  'MFC': ['USD', 'BTC'],
 };
