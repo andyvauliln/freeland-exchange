@@ -1,6 +1,7 @@
 // import * as Trade from '../../services/api/trade';
 import pairsMocks from '../../mocks/pairsMock';
 import pairInfoMock from '../../mocks/pairInfoMock';
+import historyMock from '../../mocks/historyMock';
 
 export default {
   state: {
@@ -17,6 +18,9 @@ export default {
     getPairName: (state, getters) => ({base = getters.baseCurrency, quote = getters.quoteCurrency}) => {
       return `${base}_${quote}`;
     },
+    getLastTrades(state) {
+      return state.trades;
+    },
   },
   mutations: {
     setPairs(state, data) {
@@ -27,6 +31,9 @@ export default {
     },
     setPairInfo(state, data) {
       state.pairInfo = data;
+    },
+    setTradeHistory(state, trades) {
+      state.trades = trades.data;
     },
   },
   actions: {
@@ -47,6 +54,9 @@ export default {
           quote: currency,
         });
         commit('setPair', pair);
+      },
+      getTradeHistory({state, commit}) {
+          commit('setTradeHistory', historyMock);
       },
  },
   namespaced: true,

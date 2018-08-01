@@ -12,14 +12,32 @@
       :use-css-transforms="true",
       @layout-updated="layoutUpdatedEvent",
     )
+    GridItem(
+        v-for="(item, index) in (gridData)",
+        :key="index",
+        :x="item.x",
+        :y="item.y",
+        :w="item.w",
+        :h="item.h",
+        :i="item.i",
+        :minW="item.minW",
+        :minH="item.minH",
+        :maxH="item.maxH",
+      )
+      GridItems(
+        :component="item.i",
+        :index="index"
+      )
 </template>
 
 <script>
 import VueGridLayout from 'vue-grid-layout';
 import {mapState, mapMutations, mapGetters} from 'vuex';
 import GridPanel from './GridPanel';
+import GridItems from './GridItems';
 
 const GridLayout = VueGridLayout.GridLayout;
+const GridItem = VueGridLayout.GridItem;
 
 export default {
   computed: {
@@ -39,12 +57,13 @@ export default {
     }),
     layoutUpdatedEvent(newLayout) {
       this.changeGrid(newLayout);
-      // console.log('Updated layout: ', newLayout);
     },
   },
   components: {
     GridLayout,
     GridPanel,
+    GridItems,
+    GridItem,
   },
 };
 </script>

@@ -1,13 +1,13 @@
 export default {
   state: {
     allGridLayout: [
-      {i: 'chart', x: 3, y: 0, w: 9, h: 7, minW: 5, minH: 7},
+      {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
     ],
     gridData: [
-      {i: 'chart', x: 3, y: 0, w: 9, h: 7, minW: 5, minH: 7},
+      {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
     ],
     mobileGridData: [
-      {i: 'chart', x: 0, y: 7, w: 12, h: 7, minW: 5, minH: 7},
+      {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
     ],
     isEdit: false,
   },
