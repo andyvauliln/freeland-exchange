@@ -1,7 +1,6 @@
 <template lang="pug">
 ModalLayout
   .singIn
-    Icon.singIn__icon(id="signin")
     form.singIn__content(v-if="step == 0" @submit.prevent="signIn()")
       .singIn__headerContent
         .singIn__title Sign in
@@ -10,9 +9,9 @@ ModalLayout
         IInput.singIn__input(label="Email", v-model="email", type="email")
         IInput.singIn__input(label="Password", v-model="password", type="password")
       .singIn__checkboxContainer
-        Checkbox.singIn__checkbox(name="remember", :value="true", v-model="remember")
+        Checkbox.singIn__checkbox(name="remember", color="yellow" :value="true", v-model="remember")
           .singIn__checkboxLabel Remember me
-      BButton.singIn__button(color="malachite" rounded type="submit") Let me in
+      BButton.singIn__button(color="yellow" rounded type="submit") Let me in
       .singIn__forgot #[a.link(href="#" @click="openModal({name: 'reset'})") Forgot password?]
     .singIn__other(@click="openSignUp") Sign up
     Status.singIn__status(v-if="step == 1", :isSuccess="isSuccess")
@@ -74,7 +73,9 @@ export default {
 
 <style lang="scss">
 @import 'variables';
-
+.modal__content{
+  height: 387px;
+}
 .singIn {
   display: flex;
   flex-direction: column;

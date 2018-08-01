@@ -1,7 +1,6 @@
 <template lang="pug">
 ModalLayout
   .singUp
-    Icon.singUp__icon(id="signup")
     form.singUp__content(v-if="step == 0" @submit.prevent="signUpUser")
       .singUp__headerContent
         .singUp__title Sign up
@@ -13,9 +12,9 @@ ModalLayout
           IInput.singUp__input(label="Confirm password", v-model="passwordRepeat",  type="password")
           .singUp__hiddenError(v-show="parsePassword") {{parsePassword}}
         .singUp__block
-          Checkbox.singUp__checkbox(name="acknowledged", :value="true", v-model="iAgree")
+          Checkbox.singUp__checkbox(name="acknowledged", color="yellow", :value="true", v-model="iAgree")
             span.singUp__iAgree I certify that I am 18 years of age or older, and I agree to the #[a.link(href="#") User Agreement] and #[a.link(href="#") Privacy Policy].
-          BButton.singUp__button(color="malachite" rounded type="submit") Create account
+          BButton.singUp__button(color="yellow" rounded type="submit") Create account
       .singUp__other(@click="openSignIn") Sign in
     Status.singUp__status(v-if="step == 1")
       .singUp__statusMsg Completed
@@ -98,7 +97,9 @@ export default {
 
 <style lang="scss">
 @import 'variables';
-
+.modal__content{
+  height: 387px;
+}
 .singUp {
   display: flex;
   flex: 1;

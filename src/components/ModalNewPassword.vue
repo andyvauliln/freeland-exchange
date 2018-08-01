@@ -1,7 +1,6 @@
 <template lang="pug">
 ModalLayout
   .newPassword
-    Icon.newPassword__icon(id="pass")
     form.newPassword__content(v-if="step == 0" @submit.prevent="finishPasswordReset()")
       .newPassword__headerContent
         .newPassword__title Reset password
@@ -12,7 +11,7 @@ ModalLayout
         IInput.newPassword__input(v-else placeholder="Repeat password" label="Repeat password" v-model="passwordRepeat" type="password")
         Checkbox.newPassword__checkbox(v-model="showSymbols")
           .newPassword__checkboxText Display symbols
-      BButton.newPassword__button(color="malachite" rounded type="submit") Reset now
+      BButton.newPassword__button(color="yellow" rounded type="submit") Reset now
     Status.newPassword__status(v-if="step == 1")
 </template>
 
@@ -64,7 +63,9 @@ export default {
 
 <style lang="scss">
 @import 'variables';
-
+.modal__content{
+  height: 387px;
+}
 .newPassword{
   display: flex;
   flex-direction: column;

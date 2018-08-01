@@ -44,9 +44,8 @@ export default {
   justify-content: space-between;
   height: 100%;
   padding: 15px 0;
-  background-color: $color_blue;
-  background-image: linear-gradient(to top, #01253A 0%, #03354F 100%);
-  border-left: 1px solid $color_tangaroa;
+  background-image: linear-gradient(to top, #262727 0%, #1e1e1f 100%);
+  border-left: 1px solid #2c3338;
   z-index: 1;
   flex-shrink: 0;
   &__iconWrap {

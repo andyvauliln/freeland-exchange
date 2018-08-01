@@ -1,13 +1,18 @@
 <template lang="pug">
 header.header
   .header__main
+    TheHeaderPair
     .header__stats
+      TheHeaderPairInfo
     .header__userbar
       TheHeaderLogout
 </template>
 
 <script>
+import BButton from './BButton';
+import TheHeaderPair from './TheHeaderPair';
 import TheHeaderLogout from './TheHeaderLogout';
+import TheHeaderPairInfo from './TheHeaderPairInfo';
 
 export default {
   data() {
@@ -16,9 +21,10 @@ export default {
   },
   computed: {
   },
-  methods: {
-  },
   components: {
+    BButton,
+    TheHeaderPair,
+    TheHeaderPairInfo,
     TheHeaderLogout,
   },
 };
@@ -28,10 +34,10 @@ export default {
 @import 'variables';
 
 .header {
-  padding: 12px 28px;
+  padding: 9px 28px;
   width: 100%;
   color: #fff;
-  background-color: $color_blue;
+  background-color: #1a1f23;
   &__main {
     display: flex;
     align-items: center;

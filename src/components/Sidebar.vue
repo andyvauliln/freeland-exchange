@@ -44,9 +44,9 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background-image: linear-gradient(to top, #01253A 0%, #03354F 100%);
+  background-image: linear-gradient(to top, #1d1f21 0%, #39454a 100%);
   position: relative;
-  border-right: 1px solid #00334C;
+  border-right: 1px solid #3c4448;
   &:not(:first-child) {
     position: relative;
   }
@@ -56,7 +56,7 @@ export default {
     bottom: 0;
     width: 328px;
     height: 307px;
-    background: $background__shadow__gradient__to__top;left: 0;
+    background: linear-gradient(180deg, rgba(88, 100, 107, 0) 0%, #191919 100%);
     left: 0;
     transition: left .1s linear;
     &--hidden {
@@ -70,12 +70,12 @@ export default {
     width: $size;
     fill: #fff;
     &:hover{
-      pointer: cursor;
+      cursor:pointer;
     }
   }
   &__item {
     padding: 32px 18px 32px 25px;
-    border-bottom: 1px solid #032537;
+    border-bottom: 1px solid #4b5458;
     font-size: 12px;
     position: relative;
     &--logo {
@@ -152,6 +152,7 @@ export default {
     height: 30px;
     width: 80px;
     fill: #fff;
+    filter: invert(100%);
   }
   &__title {
     color: #ffffff;
