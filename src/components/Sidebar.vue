@@ -149,8 +149,8 @@ export default {
     margin-top: 5px;
   }
   &__logo {
-    height: 30px;
-    width: 80px;
+    width: 220px;
+    height: 60px;
     fill: #fff;
     filter: invert(100%);
   }

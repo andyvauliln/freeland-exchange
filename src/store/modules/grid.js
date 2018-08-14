@@ -2,12 +2,18 @@ export default {
   state: {
     allGridLayout: [
       {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
+      {i: 'buySell', x: 0, y: 0, w: 3, h: 6.5, minW: 2, minH: 6.5, maxH: 6.5},
+      {i: 'book', x: 3, y: 7, w: 5, h: 8, minW: 5, minH: 2},
     ],
     gridData: [
       {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
+      {i: 'buySell', x: 0, y: 0, w: 3, h: 6.5, minW: 2, minH: 6.5, maxH: 6.5},
+      {i: 'book', x: 3, y: 7, w: 5, h: 8, minW: 5, minH: 2},
     ],
     mobileGridData: [
       {i: 'history', x: 0, y: 7, w: 3, h: 8, minW: 3, minH: 2},
+      {i: 'buySell', x: 0, y: 0, w: 3, h: 6.5, minW: 2, minH: 6.5, maxH: 6.5},
+      {i: 'book', x: 3, y: 7, w: 5, h: 8, minW: 5, minH: 2},
     ],
     isEdit: false,
   },
@@ -43,7 +49,6 @@ export default {
       }
     },
     removeGridLayout(state, component) {
-      // console.log('Remove grid item ', component);
       state.gridData = state.gridData.filter((e) => {
         return e.i != component;
       });
@@ -51,7 +56,9 @@ export default {
   },
   getters: {
     getHiddenLayout(state) {
-      return state.allGridLayout.filter((e) => state.gridData.findIndex((i) => i.i == e.i) === -1);
+      return state.allGridLayout.filter(
+        (e) => state.gridData.findIndex((i) => i.i == e.i) === -1
+      );
     },
   },
   namespaced: true,

@@ -2,6 +2,7 @@
 import pairsMocks from '../../mocks/pairsMock';
 import pairInfoMock from '../../mocks/pairInfoMock';
 import historyMock from '../../mocks/historyMock';
+import orderBookMock from '../../mocks/orderBookMock';
 
 export default {
   state: {
@@ -35,6 +36,9 @@ export default {
     setTradeHistory(state, trades) {
       state.trades = trades.data;
     },
+    setBook(state, data) {
+      state.book = data;
+    },
   },
   actions: {
     getPairs({commit}) {
@@ -57,6 +61,9 @@ export default {
       },
       getTradeHistory({state, commit}) {
           commit('setTradeHistory', historyMock);
+      },
+      getOrderBook({getters, commit}, {limit}) {
+        commit('setBook', orderBookMock);
       },
  },
   namespaced: true,

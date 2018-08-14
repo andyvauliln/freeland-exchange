@@ -1,11 +1,22 @@
 <template lang="pug">
 .gridItem
-  .gridItem__tile.gridItem__tile--history(v-if="this.component === 'history'" )
-    .gridItem__tileContent.gridItem__tileContent--history
+  .gridItem__title(v-if="this.component === 'buySell'")
+    .gridItem__titleContent
+      BuySell
+  .gridItem__title(v-if="this.component === 'book'")
+    .gridItem__titleContent.gridItem__titleContent--books
+      TitleHeader.gridItem__titleHeader.gridItem__titleHeader--book(title='Order book' center)
+      .gridItem__books
+        .gridItem__containerWitchOverflow(v-scrollbar="")
+          OrderBook.gridItem__book(:limit='19')
+        .gridItem__containerWitchOverflow(v-scrollbar="")
+          OrderBook.gridItem__book(ask, :limit='19')
+  .gridItem__title.gridItem__title--history(v-if="this.component === 'history'" )
+    .gridItem__titleContent.gridItem__titleContent--history
       TitleHeader.gridItem__TitleHeader.gridItem__TitleHeader--history(title='History of trades' center)
       .gridItem__containerWitchOverflow(v-scrollbar="")
         History
-  Icon.gridItem__deleteTile(id="trash", @click="removeGridLayout(component)" v-show="isEdit")
+  Icon.gridItem__deletetitle(id="trash", @click="removeGridLayout(component)" v-show="isEdit")
 </template>
 
 <script>
@@ -13,6 +24,8 @@ import {mapState, mapMutations} from 'vuex';
 import {scrollbar} from '@/directives';
 import TitleHeader from './TitleHeader';
 import History from './History';
+import BuySell from './BuySell';
+import OrderBook from './OrderBook';
 
 export default {
   computed: {
@@ -41,6 +54,8 @@ export default {
   components: {
     TitleHeader,
     History,
+    BuySell,
+    OrderBook,
   },
 };
 </script>
@@ -54,12 +69,12 @@ export default {
   height: 100%;
   outline: 1px solid #0a0a0a;
   position: relative;
-  &__tile {
+  &__title {
     width: 100%;
     height: 100%;
     background-color: $color_blue;
   }
-  &__tileContent {
+  &__titleContent {
     width: 100%;
     height: 100%;
     display: flex;
@@ -68,6 +83,9 @@ export default {
       width: 15%;
     }
     &--history {
+      padding: $default_spacing;
+    }
+    &--books {
       padding: $default_spacing;
     }
   }
@@ -82,12 +100,17 @@ export default {
       margin-bottom: $default_spacing;
     }
   }
+  &__books {
+    width: 100%;
+    display: flex;
+    padding: 13px;
+  }
   &__containerWitchOverflow {
     position: relative;
     display: flex;
     flex: 1;
   }
-  &__deleteTile {
+  &__deletetitle {
     position: absolute;
     top: 10px;
     right: 10px;

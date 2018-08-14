@@ -9,7 +9,7 @@
         .main__shadow--top
         .main__shadow--bottom
       TheHeader
-      .main__tiles(v-if="!isPageOpened()")
+      .main__titles(v-if="!isPageOpened()")
         Grid
       //- Pages
   //- Modals
